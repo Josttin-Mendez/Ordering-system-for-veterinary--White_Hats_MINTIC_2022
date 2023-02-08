@@ -1,0 +1,82 @@
+{
+  "name": "pedidos",
+  "version": "0.0.1",
+  "description": "intro",
+  "keywords": [
+    "loopback-application",
+    "loopback"
+  ],
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "engines": {
+    "node": "14 || 16 || 17 || 18"
+  },
+  "scripts": {
+    "build": "lb-tsc",
+    "build:watch": "lb-tsc --watch",
+    "lint": "npm run eslint && npm run prettier:check",
+    "lint:fix": "npm run eslint:fix && npm run prettier:fix",
+    "prettier:cli": "lb-prettier \"**/*.ts\" \"**/*.js\"",
+    "prettier:check": "npm run prettier:cli -- -l",
+    "prettier:fix": "npm run prettier:cli -- --write",
+    "eslint": "lb-eslint --report-unused-disable-directives .",
+    "eslint:fix": "npm run eslint -- --fix",
+    "pretest": "npm run rebuild",
+    "test": "lb-mocha --allow-console-logs \"dist/__tests__\"",
+    "posttest": "npm run lint",
+    "test:dev": "lb-mocha --allow-console-logs dist/__tests__/**/*.js && npm run posttest",
+    "docker:build": "docker build -t pedidos .",
+    "docker:run": "docker run -p 3000:3000 -d pedidos",
+    "premigrate": "npm run build",
+    "migrate": "node ./dist/migrate",
+    "preopenapi-spec": "npm run build",
+    "openapi-spec": "node ./dist/openapi-spec",
+    "prestart": "npm run rebuild",
+    "start": "node -r source-map-support/register .",
+    "clean": "lb-clean dist *.tsbuildinfo .eslintcache",
+    "rebuild": "npm run clean && npm run build"
+  },
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
+  "author": "White Hats <lizzethbejarano620@gmail.com>",
+  "license": "",
+  "files": [
+    "README.md",
+    "dist",
+    "src",
+    "!*/__tests__"
+  ],
+  "dependencies": {
+    "@loopback/authentication": "^9.0.4",
+    "@loopback/boot": "^5.0.3",
+    "@loopback/core": "^4.0.3",
+    "@loopback/repository": "^5.0.3",
+    "@loopback/rest": "^12.0.3",
+    "@loopback/rest-explorer": "^5.0.3",
+    "@loopback/security": "^0.8.4",
+    "@loopback/service-proxy": "^5.0.3",
+    "@types/node-fetch": "^2.6.2",
+    "crypto-js": "^4.1.1",
+    "express": "^4.18.2",
+    "got": "^12.5.2",
+    "json-web-token": "^3.2.0",
+    "jsonwebtoken": "^8.5.1",
+    "loopback-connector-mongodb": "^5.6.0",
+    "mongoose": "^6.7.3",
+    "node-fetch": "^2.6.5",
+    "parse-bearer-token": "^1.0.1",
+    "password-generator": "^2.3.2",
+    "tslib": "^2.0.0"
+  },
+  "devDependencies": {
+    "@loopback/build": "^9.0.3",
+    "@loopback/eslint-config": "^13.0.3",
+    "@loopback/testlab": "^5.0.3",
+    "@types/node": "^14.18.26",
+    "eslint": "^8.22.0",
+    "source-map-support": "^0.5.21",
+    "typescript": "~4.7.4"
+  }
+}

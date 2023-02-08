@@ -1,0 +1,21 @@
+nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: rgba(255, 255, 255, 0.479);
+  text-decoration: none;
+}
+
+ul li {
+  display: inline-block;
+  list-style: none;
+  padding: 6px 20px;
+  cursor: pointer;
+  transition: all 0.3s ease 0s;
+}
+
+ul li:hover {
+  /* background: #2CCAAE; */
+  border-radius: 25px;
+  text-decoration: none;
+}

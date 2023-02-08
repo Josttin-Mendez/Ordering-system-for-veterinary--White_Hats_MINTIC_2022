@@ -1,0 +1,26 @@
+
+<div class="container bg-dark text-white"  style="width: 550px; border-radius: 7px;margin-top:95px;margin-bottom:80px; padding:15px;" >
+  <h3 class="center-align">Editar Productos</h3>
+  <article class="col s6 offset-s3">
+      <form [formGroup]="fgValidador" (ngSubmit)="EditarProducto()"method="POST"action="">
+        <input type="hidden" formControlName="id"/>
+        <div class="input-field"  style="margin: 15px;">
+              <label for="nombre" class="active">Nombre</label>
+              <input formControlName="nombre" type="text" name="nombre" required style=" text-align:center; border-radius: 5px; background:white;  padding-left:3px;">
+          </div>
+
+          <div class="input-field"  style="margin: 15px;">
+              <label for="precio" class="active">Precio</label>
+              <input formControlName="precio" type="text" name="precio" required style=" text-align:center; border-radius: 5px; background:white; padding-left:3px;">
+          </div>
+
+          <div class="input-field"  style="margin: 15px;">
+              <input  formControlName="imagen" class="form-controls active" type="file" id="formFile"name="imagen" required >
+          </div>
+          <p class="center-align">
+              <button [disabled]="!fgValidador.valid" class="btn btn-outline-light btn-lg px-5" type="submit">Enviar</button>
+          </p>
+      </form>
+  </article>
+</div>
+

@@ -1,0 +1,30 @@
+<div class="container" style="margin-top:22px;">
+  <h2 style="font-size: 3rem; margin-bottom: 20px;">
+    <strong> Usuarios</strong>
+  </h2>
+  <a routerLink="/administracion/crearPersona" class="btn btn-dark" style="margin-bottom:8px;">Nuevo Usuario</a>
+<table class="table-responsive table-bordered" style="margin-top:8px;">
+  <thead >
+    <tr>
+      <th scope="col">Nombres</th>
+      <th scope="col">Apellidos</th>
+      <th scope="col">Correo</th>
+      <th scope="col">Celular</th>
+      <th scope="col">Rol</th>
+      <th scope="col">Acciones</th>
+
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let p of listadoRegistros">
+      <td>{{p.nombres}}</td>
+      <td>{{p.apellidos}}</td>
+      <td>{{p.correo}}</td>
+      <td>{{p.celular}}</td>
+      <td>{{p.rol}}</td>
+
+      <td><a routerLink="/administracion/editarPersona/{{p.id}}" class="btn btn-dark">Editar Usuario</a></td>
+    </tr>
+  </tbody>
+</table>
+</div>

@@ -1,0 +1,24 @@
+<div class="container" style="margin-top:22px;">
+  <h2 style="font-size: 4rem; margin-bottom: 20px;">
+    <strong>Productos</strong>
+  </h2>
+  <a routerLink="/administracion/crearProducto" class="btn btn-dark" style="margin-bottom:8px;">Nuevo Producto</a>
+<table class="table-responsive table-bordered" style="margin-top:8px;">
+  <thead >
+    <tr>
+      <th scope="col">Nombre</th>
+      <th scope="col">Precio</th>
+      <th scope="col">Imagen</th>
+      <th scope="col">Acciones</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let p of listadoRegistros">
+      <td>{{p.nombre}}</td>
+      <td>{{p.precio}}</td>
+      <td> <img src="{{p.imagen}}" class="imagenProducto" alt="Imagen"/></td>
+      <td><a routerLink="/administracion/editarProducto/{{p.id}}" class="btn btn-dark">Editar Producto</a></td>
+    </tr>
+  </tbody>
+</table>
+</div>
